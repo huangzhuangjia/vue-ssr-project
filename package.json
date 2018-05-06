@@ -1,9 +1,9 @@
 {
-  "name": "ssr-project",
+  "name": "yyschool",
   "version": "1.0.0",
-  "description": "Nuxt.js project",
-  "author": "Junga <1364475214@qq.com>",
-  "private": true,
+  "description": "yyschool v1.0.0",
+  "author": "huangzhuangjia",
+  "private": false,
   "scripts": {
     "dev": "backpack dev",
     "devMock": "cross-env USE_MOCK=true concurrently \"backpack dev\" \"npm run nodemon\"",

@@ -2,7 +2,7 @@
  * @Author: huangzhuangjia 
  * @Date: 2018-05-02 15:06:44 
  * @Last Modified by: Junga
- * @Last Modified time: 2018-05-06 17:06:40
+ * @Last Modified time: 2018-05-06 18:55:14
  */
 import axios from 'axios'
 import env from '../config/env'
@@ -15,7 +15,8 @@ const ax = axios.create({
   withCredentials: true, // 是否允许带cookie
   headers: {
     'Content-Type': 'application/x-www-form-urlencoded;charset=utf-8'
-  }
+  },
+  baseURL: process.env.NODE_ENV === 'development' ? env.devBaseUrl : env.prodBaseUrl
 })
 
 // POST传参序列化(添加请求拦截器)
@@ -36,8 +37,7 @@ ax.interceptors.request.use(config => {
 },
 (error) => {
   return Promise.reject(error)
-}
-)
+})
 // 响应拦截器
 ax.interceptors.response.use(
   (response) => {
@@ -67,7 +67,6 @@ const fetch = (options) => {
   if (env.MOCK_ENV) {
     settings.method = 'get'
   }
-  settings.url = env.rootUrl + settings.url
   const promise = new Promise((resolve, reject) => {
     ax(settings).then((response) => {
       resolve(response)

@@ -1,22 +1,23 @@
-# ssr-project
+# yyschool
 
-> Nuxt.js project
+> yyschool1.0  （基于Vue Nuxt SSR框架）
 
-## Build Setup
+## Usage
 
-``` bash
-# install dependencies
-$ npm install # Or yarn install
+### Installation
 
-# serve with hot reload at localhost:3000
-$ npm run dev
+> $ npm install
 
-# build for production and launch server
-$ npm run build
-$ npm start
+### serve with hot reload
 
-# generate static project
-$ npm run generate
-```
+> $ npm run dev
 
-For detailed explanation on how things work, checkout the [Nuxt.js docs](https://github.com/nuxt/nuxt.js).
+默认开启3000端口
+
+### serve with mock api
+
+> $ npm run devMock
+
+项目开发阶段用json-server模拟后台数据，默认开启端口3333
+
+> 注： 运行dev命令使用后台代理接口，运行devMock命令使用本地json-server进行模拟接口
