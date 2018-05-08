@@ -1,9 +1,12 @@
+// const env = require('../../config/env')
 const jsonServer = require('json-server')
 const server = jsonServer.create()
 
 // Support middleware
 const middleware = jsonServer.defaults()
 server.use(middleware)
+
+const port = process.env.MOCK_PORT || process.env.npm_package_mockPort
 
 // 支持加载多个db json文件
 const path = require('path')
@@ -21,6 +24,6 @@ router.render = (req, res) => {
   res.jsonp(res.locals.data)
 }
 
-server.listen(3333, () => {
+server.listen(port, () => {
   console.log('JSON Server is running')
 })

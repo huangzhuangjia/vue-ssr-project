@@ -69,7 +69,7 @@
       display: inline-block;
       width: 136px;
       height: 40px;
-      background: url(../../assets/images/logo.png) no-repeat;
+      background: url(../../assets/img/logo.png) no-repeat;
     }
     .ys-nav {
       position: absolute;
@@ -103,7 +103,7 @@
         display: inline-block;
         width: 14px;
         height: 16px;
-        background: url(../../assets/images/ic_user.png) no-repeat;
+        background: url(../../assets/img/ic_user.png) no-repeat;
       }
       .line {
         display: inline-block;

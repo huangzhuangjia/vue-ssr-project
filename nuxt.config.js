@@ -16,15 +16,8 @@ module.exports = {
   dev: (process.env.NODE_ENV !== 'production'),
   //设置mock数据下的环境变量
   env: {
-    use_mock: process.env.USE_MOCK || false,
-  },
-  /*
-  ** Customize the progress bar color
-  */
-  loading: { color: '#3B8070' },
-   // router
-  router: {
-    linkActiveClass: 'router-link-active'
+    USE_MOCK: process.env.USE_MOCK || false,
+    MOCK_PORT: process.env.MOCK_PORT || process.env.npm_package_mockPort //json-server端口号
   },
   /*
   ** Global CSS
@@ -33,11 +26,25 @@ module.exports = {
     { src: '~assets/scss/index.scss', lang: 'scss' }
   ],
   /*
-  ** Build configuration
+  ** Customize the progress-bar color
   */
+  loading: { color: '#fbe037' },
+  // router
+  router: {
+    linkActiveClass: 'router-link-active'
+  },
+  /*
+   ** Build configuration
+   */
   build: {
     vendor: [
       'axios'
+    ],
+    // postcss
+    postcss: [
+      require('postcss-nested')(),
+      require('postcss-responsive-type')(),
+      require('postcss-hexrgba')()
     ],
     // babel
     babel: {
@@ -48,10 +55,10 @@ module.exports = {
       ]
     },
     /*
-    ** Run ESLint on save
-    */
-    extend (config, { isDev, isClient }) {
-      if (isDev && isClient) {
+     ** Run ESLINT on save
+     */
+    extend (config, ctx) {
+      if (ctx.isClient) {
         config.module.rules.push({
           enforce: 'pre',
           test: /\.(js|vue)$/,

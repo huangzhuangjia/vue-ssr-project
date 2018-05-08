@@ -1,6 +1,6 @@
 <template>
   <div class="ys-wrapper ys-video-sort-wrapper">
-    视频分类
+    yy-视频分类
   </div>
 </template>
 
