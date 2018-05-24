@@ -1,6 +1,4 @@
-# yyschool
-
-> yyschool1.0  （基于Vue Nuxt SSR框架）
+# ssr project（基于Vue Nuxt SSR框架）
 
 ## Usage
 
